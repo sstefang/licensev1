@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Stefan (generated)" id="1439225004329-1">
+        <createTable tableName="Humidity">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Time" type="BIGINT"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add humidity" author="victor">
+
+        <addColumn tableName="Humidity">
+            <column name="humidity" type="BIGINT"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add user" author="victor">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(40)" />
+            <column name="password" type="varchar(100)" />
+            <column name= "passwordconfirm" type="varchar(100)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add role" author="stefan">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(40)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add measures" author="stefan">
+        <createTable tableName="measures">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="time" type="date" />
+            <column name="humidity" type="varchar(40)" />
+            <column name="pressure" type="varchar(40)" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="addColumn" author="stefan">
+        <addColumn tableName="measures">
+            <column name="temperature" type="varchar(40)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="1" author="stefan">
+        <comment>AddColumn</comment>
+        <addColumn tableName="measures">
+            <column name="testcolumn" type="varchar(40)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add user" author="Stefan">
+        <createTable tableName="user_roles">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="BIGINT" />
+            <column name="role_id" type="varchar(100)" />
+            <column name= "password" type="varchar(100)"/>
+            <column name="passwordconfirm" type="varchar(40)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Stefan" id="add datapoints">
+        <createTable tableName="datapoints">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="Time" type="BIGINT"/>
+            <column name="Pressure" type="BIGINT"/>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="stefan">
+        <comment>DeleteColumn</comment>
+        <dropColumn tableName="datapoints">
+            <column name="id"/>
+        </dropColumn>
+    </changeSet>
+
+
+
+</databaseChangeLog>
