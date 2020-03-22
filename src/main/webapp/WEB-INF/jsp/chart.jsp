@@ -16,6 +16,7 @@
                 title: {
                     text: "Column Chart from Database"
                 },
+
                 data: [{
                     type: "column",
                     dataPoints: dps[0]
@@ -45,9 +46,9 @@
         }
     </script>
 </head>
-
-    <h4>WELCOME TO WAKANDA</h4>
 <body>
+
+
 <c:if test="${error != null}">
     <div  style='width: 50%; margin-left: auto; margin-right: auto; margin-top: 200px; text-align: center;'>${error}</div>
 </c:if>

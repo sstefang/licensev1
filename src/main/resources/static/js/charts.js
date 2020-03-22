@@ -10,21 +10,15 @@ $.ajax({
 })
 
 function drawLineChart(time, temperature) {
-    Highcharts.chart('container', {
+  chart =  Highcharts.chart('container', {
         chart: {
+            title: 'time/temperature',
             type: 'line',
             width: 500
         },
-        title: {
-            text: 'Line chart'
-        },
         xAxis: {
-            name: "Time (s)",
+            title: "Time (s)",
             categories: time
-        },
-
-        yAxis: {
-            name: "Temperature (K)"
         },
         tooltip: {
             formatter: function () {
@@ -34,8 +28,21 @@ function drawLineChart(time, temperature) {
         series: [{
             data: temperature
         }]
+    });
 
+    chart.setTitle({text: "A new title"});
+    chart.xAxis[0].update({
+        title:{
+            text: "Time"
+        }
+    });
+    chart.yAxis[0].update({
+        title:{
+            text: "Temperature"
+        }
     });
 
 }
+
+
 
